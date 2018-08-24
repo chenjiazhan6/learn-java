@@ -1,0 +1,29 @@
+import java.util.*;
+public class Main
+{
+    public static List<Integer> RandomList(int length,int n) {
+        List<Integer> list = new ArrayList<>();
+        for(int i = 0 ;i < length; i ++) {
+            Random rand = new Random();
+            list.add(rand.nextInt(n));
+        }
+            return list;
+    }
+        public static void main(String[] args) {
+        Random rand = new Random();
+        List<Integer> list = RandomList(7,10);
+        System.out.println("1: "+ list);
+        Integer in = rand.nextInt(10);
+        list.add(in);
+        System.out.println("2: "+ list);
+        System.out.println("3: "+ list.contains(in));
+        list.remove(in);
+        Integer t = list.get(2);
+        System.out.println("4: "+ t + " " +list.indexOf(t));
+        Integer it =rand.nextInt(10);
+        System.out.println("5: "+list.indexOf(it));
+        System.out.println("6: "+list.remove(it));
+        System.out.println("7: "+list.remove(t));
+        
+    }
+}
