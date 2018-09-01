@@ -1,0 +1,36 @@
+class Insert{
+    private int i = 9;
+    protected int j;
+    Insert(){
+        System.out.println(i);
+        System.out.println(j);
+        j = 39;
+    }
+    private static int x1 =printInt("static Insert.x1 initiaized");
+    static int printInt(String s){
+        System.out.println(s);
+        return 47;
+    }
+}
+public class Main extends Insert{
+    private int k = printInt("Main the k initalized");
+    public Main(){
+        System.out.println(k);
+        System.out.println(j);
+    }
+    private static int x2 =printInt("static Main.x2 initalized");
+    public static void main(String[] args){
+        System.out.println("Main Constrructor");
+        Main b = new Main();
+    }
+}/***static Insert.x1 initiaized
+    static Main.x2 initalized
+    Main Constrructor
+9
+        0
+        Main the k initalized
+        47
+        39*/
+//加载这个类，发现这个类有基类，便加载这个类；
+//加载类最终的结果便是初始化static类的语句或语句块，没有调用构造函数；
+//当new一个新对象时，父类有构造器的话，便会调用父类的构造器，依次类推；
