@@ -1,0 +1,33 @@
+class Circle{
+    public void ride(){
+        System.out.println("the Circel is riding");
+    }
+}
+class Unicycle extends Circle{
+    public void ride(){
+        System.out.println("the UniCycle is riding");
+    }
+}
+class Bicycle extends Circle{
+    public void ride(){
+        System.out.println("the Bicycle is riding");
+    }
+}
+class Tricycle extends Circle{
+    public void ride(){
+        System.out.println("the Tricycle is riding");
+    }
+}
+public class Main{
+    public static void ride(Circle c){
+        c.ride();
+    }
+    public static void main(String[] args){
+        Unicycle uc = new Unicycle();
+        Bicycle bc = new Bicycle();
+        Tricycle tr = new Tricycle();
+        ride(uc);
+        ride(bc);
+        ride(tr);
+    }
+}
