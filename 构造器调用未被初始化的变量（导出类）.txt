@@ -1,0 +1,24 @@
+class Animal{
+    public Animal(){
+        System.out.println("the before first()");
+        first();
+        System.out.println("the after first()");
+    }
+    public void first() {
+        System.out.print("this is the first funtion :");
+    }
+
+
+}
+class Mouse extends Animal{
+   public void first(){
+       System.out.println("the second Mouse,you know");
+   }
+}
+public class Main{
+    public static void main(String[] args){
+        Animal a = new Mouse();
+        System.out.println("能运行吗？是不是零呢");
+    }
+}
+//这个输出函数可以运行，但是如果这个方法里面有变量的话，就将都会是0，因为都还没有初始化，基类先初始化，然后再导出类
