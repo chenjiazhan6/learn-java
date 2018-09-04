@@ -1,0 +1,63 @@
+import java.util.Random;
+
+abstract class Instrument{
+    public abstract void play(String s);
+}
+class Wind extends Instrument{
+    public void play(String s){
+        System.out.println("the Wind " + s );
+    }
+}
+class Percussion extends Instrument{
+    public void play(String s){
+        System.out.println("the Percussion" + s);
+    }
+}
+class Stringed extends Instrument{
+    public void play(String s){
+        System.out.println("the Stringed" + s);
+    }
+}
+class Brass extends Wind{
+    public void play(String s){
+        System.out.println("the Brass" + s);
+    }
+}
+class Woodwind extends Wind{
+    public void play(String s){
+        System.out.println("the Woodwind" + s);
+    }
+}
+class InstumentGenerator{
+    Random ran = new Random(47);
+    public Instrument generator(){
+        switch(ran.nextInt(5))
+        {
+            default:
+            case 1: return new Wind();
+            case 2: return new Percussion();
+            case 3: return new Stringed();
+            case 4: return new Brass();
+            case 5: return new Woodwind();
+        }
+    }
+}
+public class Main{
+    static void tune(Instrument i){
+        i.play("chenjiazhan");
+    }
+    static void tuneAll(Instrument[] e){
+        for(Instrument i : e){
+            i.play("chenjiazhan");
+        }
+    }
+    public static void main(String[] args){
+        Instrument[] in = new Instrument[9];
+        InstumentGenerator ins = new InstumentGenerator();
+        for(int i = 0 ; i < in.length ; i++){
+            in[i] = ins.generator();
+        }
+        tuneAll(in);
+    }
+}
+//想要在静态类中使用其他类的对象的非静态方法，可以用一个静态类方法，间接调用这个类的对象，进而使用这个类的方法
