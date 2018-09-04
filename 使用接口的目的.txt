@@ -1,0 +1,32 @@
+interface Canfight{
+    void fight();
+}
+interface CanSwin{
+    void Swim();
+}
+interface Canfly{
+    void fly();
+}
+class ActionCharacter{
+    public void fight()
+    {
+        System.out.println("this is the jilei");
+    }
+}
+class Hero extends ActionCharacter implements Canfight,Canfly,CanSwin{
+    public void swim(){
+        System.out.println("I can swim");
+    }
+    public void fight(){
+        System.out.println("I am fight");
+    }
+    public void fight(){
+        System.out.println("this is the daochu lie");
+    }
+}
+public class Main{
+    public static void main(String[] args){
+        
+    }
+}
+//使用接口的目的便是可以向上转型，多种类型
