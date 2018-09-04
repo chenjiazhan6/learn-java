@@ -1,0 +1,32 @@
+import java.util.Arrays;
+
+class Processor{
+    public String name{
+        return getClass().getSimpleName();
+    }
+    Object process(Object input){
+        return input;
+    }
+}//导出类重写方法可以返回原返回类的子类
+class Upcase extends Processor{
+    String process(Object input){
+        return ((String)input).toUpperCase();
+    }
+}
+class Downcase extends Processor{
+    String process(Object input){
+        return ((String)input).toLowerCase();
+    }
+}
+class Splitter extends Processor{
+    String process(Object input){
+        return Arrays.toString(((String).input).split(" "));
+    }
+}
+public class Main{
+    public static void process(Processor p,Object s){
+        System.out.println(p.name);
+        System.out.println(p.process());
+    }//这就是一个策略设计方法
+}
+//策略设计模式
