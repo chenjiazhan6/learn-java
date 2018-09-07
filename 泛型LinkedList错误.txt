@@ -1,0 +1,34 @@
+public class Main<T>{
+    private static class Node<U>{
+        U item;
+        U next;
+        Node(){item = null; next = null;}
+        Node(U item,U next){
+            this.item = item;
+            this.next = next;
+        }
+        boolean end(){return item == null && next == null;}
+  }
+    private  Node<T> top = new Node<T>();
+    public void push(T item){
+      //  top = new Node<T>(item,top);
+    }
+    public T pop(){
+        T item = top.item;
+        if(!top.end())
+            top = top.next;
+        return item;
+    }
+    public static void main(String[] args){
+        Main<String> LinkedList = new Main<>();
+        for(String s : "cerwjgne wergjw  vewjignrw vwenigr".split(" ")) {
+            LinkedList.push(s);
+        }
+        String s = null;
+        while((s = LinkedList.pop())!= null){
+            System.out.println(s);
+        }
+
+
+    }
+}
