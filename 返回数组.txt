@@ -1,0 +1,31 @@
+import java.util.Arrays;
+import java.util.Random;
+
+public class Main{
+    public static String[] st = {"gewhgwerj",
+    "njhrtjhrt","iswhntrjher","njrhwrhrtj","hjnfkgn","chenjiazhan","gjgesrkgner"};
+    public static Random ran = new Random();
+    public static String[] FoavorFruit(int n){
+        if(n>st.length) {
+            throw new IllegalArgumentException();
+        }
+        String[] result = new String[n];
+        boolean picked[] = new boolean[st.length];//为什么数组会越界呢？肯定越界呀
+        for(int i = 0 ; i < n ; i ++){
+          int t;
+          do{
+              t = ran.nextInt(st.length);
+          }while(picked[t]);
+          result[i] = st[t];
+          picked[i] = true;
+      }
+      return result;
+    }//这个数组不管是在哪里创建的，可以直接使用它，不用时便会被垃圾回收器自动回收
+    public static void main(String[] args){
+        String[] str;
+        for(int i = 0 ; i < 7; i ++){
+            str = FoavorFruit(3);
+            System.out.println(Arrays.toString(str));
+        }
+    }
+}
