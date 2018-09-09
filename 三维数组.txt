@@ -1,0 +1,10 @@
+import java.sql.Array;
+import java.util.Arrays;
+
+public class Main{
+    public static void main(String[] args){
+        int[][][] a = new int[2][2][4];
+        //has fixed length
+        System.out.println(Arrays.deepToString(a));
+    }
+}
