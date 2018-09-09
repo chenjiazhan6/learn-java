@@ -1,0 +1,28 @@
+import java.util.Arrays;
+
+public class Main{
+    public static void main(String[] args){
+        int size = 6;
+        boolean[] a1 = new boolean[size];
+        char[] a2 = new char[size];
+        long[] a3 = new long[size];
+        short[] a4= new short[size];
+        float[] a5 = new float[size];
+        double[] a6 = new double[size];
+        String[] a9 = new String[size];
+        Arrays.fill(a1,true);
+        Arrays.fill(a2,'x');
+        Arrays.fill(a3,33);
+        Arrays.fill(a4,(short)22);
+        Arrays.fill(a5,323);
+        Arrays.fill(a6,3243);
+        Arrays.fill(a9,"hello");
+        System.out.println(Arrays.toString(a1));
+        System.out.println(Arrays.toString(a2));
+        System.out.println(Arrays.toString(a3));
+        System.out.println(Arrays.toString(a4));
+        System.out.println(Arrays.toString(a5));
+        System.out.println(Arrays.toString(a6));
+        System.out.println(Arrays.toString(a9));
+    }//tostring与deepToString之间deepToString主要是用于多维数组的遍历
+}
