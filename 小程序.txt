@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class Main<T>{
+    private static Random  ran = new Random(47);
+    private List<T> li = new ArrayList<>();
+    public void add(T a){
+        li.add(a);
+    }
+    public T select(){
+        T sl = li.get(ran.nextInt(li.size()));
+        return sl;
+    }
+    public static void main(String[] args){
+        Main<String> in = new Main<>();
+        for(String s : "chen jia zhan chen jia zhan chen jia zhan".split(" ")){
+            in.add(s);
+        }
+        for(int i = 0 ; i < 11; i ++){
+            System.out.println(in.select());
+        }
+    }
+
+}
