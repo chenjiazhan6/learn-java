@@ -1,0 +1,33 @@
+import java.util.Arrays;
+
+class Staff implements Comparable<Staff>
+{
+    private String name;
+    private double Saraly;
+    public Staff(String name,int Saraly){
+        this.name = name;
+        this.Saraly = Saraly;
+    }
+    public String getName(){
+        return name;
+    }
+    public double getSaraly(){
+        return Saraly;
+    }
+    public int compareTo(Staff other){
+        return Double.compare(Saraly,other.Saraly);
+    }
+}
+public class Main{
+    public static void main(String[] args){
+        Staff[] st = new Staff[3];
+        st[0] = new Staff("chen",5555) ;
+        st[1] = new Staff("jiazhan",18000);
+        st[2] = new Staff("chenjiazhan",66666);
+        Arrays.sort(st);
+        for(Staff  s : st){
+           System.out.println(s.getName()+":"+s.getSaraly());
+        }
+
+    }
+}
