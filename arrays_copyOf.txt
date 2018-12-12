@@ -1,0 +1,65 @@
+Arrays.copyOf这个方法拷贝了原数组，返回一个新的数组，这个拷贝的过程中到底是值传递还是指针传递，
+尝试了一下，结果是指针传递，也就是说，虽然Arrays.copyOf虽然返回了一个新的数组，和原来的数组没有什么关系，
+但是这两个数组里面的内容都是指向同一个引用的
+下面是一个例子：
+创建了一个student类来做实验
+package com;
+
+import java.util.Arrays;
+
+public class Test {
+    public static void main(String[] args){
+        Student[] students = new Student[3];
+        students[0] = new Student(3434,"chenjiazhan",835745);
+        students[1] = new Student(8347543,"guerge",5435);
+        students[2] = new Student(4835,"urgirt",34543);
+        Student[] copy = Arrays.copyOf(students,students.length);
+        for(Student s : copy){
+            System.out.println(s.toString());
+        }
+        copy[1].setId(5832573);
+        System.out.println("改变后的数组");
+        for(Student s : copy){
+            System.out.println(s.toString());
+        }
+        System.out.println("复制后的数组改变后是否是会影响到原来的数组，也就是这两个数组里面所存储的内容指针是不是指向同一个地方");
+        for(Student s : students){
+            System.out.println(s.toString());
+        }
+        System.out.println("很遗憾，确实是这样的");
+
+    }
+}
+
+这个是使用Arrays.copyOf来进行测试
+package com;
+
+import java.util.Arrays;
+
+public class Test {
+    public static void main(String[] args){
+        Student[] students = new Student[3];
+        students[0] = new Student(3434,"chenjiazhan",835745);
+        students[1] = new Student(8347543,"guerge",5435);
+        students[2] = new Student(4835,"urgirt",34543);
+        Student[] copy = Arrays.copyOf(students,students.length);
+        for(Student s : copy){
+            System.out.println(s.toString());
+        }
+        copy[1].setId(5832573);
+        System.out.println("改变后的数组");
+        for(Student s : copy){
+            System.out.println(s.toString());
+        }
+        System.out.println("复制后的数组改变后是否是会影响到原来的数组，也就是这两个数组里面所存储的内容指针是不是指向同一个地方");
+        for(Student s : students){
+            System.out.println(s.toString());
+        }
+        System.out.println("很遗憾，确实是这样的");
+
+    }
+}
+创建了一个student[]的数组，然后通过arrays.copyOf来返回了一个copy的数组，对copy数组进行修改，最终的
+student[]也发生了修改，证明了这个拷贝的过程是一个浅拷贝的过程，只是对指针进行了拷贝，并没有对其中的
+内容进行拷贝。
+
